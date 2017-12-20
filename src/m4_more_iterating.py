@@ -419,7 +419,7 @@ def count_items_bigger_than(numbers, threshold):
 def run_test_count_positive_sines():
     """ Tests the   count_positive_sines   function. """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # DONE: 6. Implement this TEST function.
     #   It TESTS the  count_positive_sines  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond what we supplied.
     #
@@ -505,16 +505,22 @@ def run_test_count_positive_sines():
     print('Test 9 expected:', expected)
     print('       actual:  ', actual)
 
-    # Test 10 (using the list [0, 1, 2, ... 1065]
-    sequence.append(1065)
-
-    expected = 533  # Trust me!
-    actual = count_positive_sines(sequence)
+    # Test 10:
+    expected = 2
+    actual = count_positive_sines([0, 12, 20, 17, 22, 1, 12])
     print()
     print('Test 10 expected:', expected)
-    print('        actual:  ', actual)
+    print('       actual:  ', actual)
 
-    # TO DO 6 (continued):  Add your 1 ADDITIONAL test here:
+    # DONE 6 (continued):  Add your 1 ADDITIONAL test here:
+
+    # Test 11:
+    expected = 3
+    actual = count_positive_sines([8, 12, 10, 17, 12, 19, 14])
+    print()
+    print('Test 11 expected:', expected)
+    print('       actual:  ', actual)
+
 
 
 def count_positive_sines(numbers):
@@ -540,8 +546,15 @@ def count_positive_sines(numbers):
     Type hints:
       :type sequence: list or tuple (of numbers)
     """
+
+    count = 0
+    for k in range (len(numbers)):
+        if math.sin(numbers[k]) > 0:
+            count = count + 1
+    return count
+
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
 
@@ -618,7 +631,21 @@ def run_test_sum_first_n():
     print('Test 7 expected:', expected)
     print('       actual:  ', actual)
 
-    # TO DO 8 (continued):  Add your 2 ADDITIONAL tests here:
+    # DONE 8 (continued):  Add your 2 ADDITIONAL tests here:
+
+    # Test 8:
+    expected = 3
+    actual = sum_first_n([4, -1, 5, 15], 2)
+    print()
+    print('Test 8 expected:', expected)
+    print('       actual:  ', actual)
+
+    # Test 9:
+    expected = 1
+    actual = sum_first_n([1, -4, 20, 0], 1)
+    print()
+    print('Test 9 expected:', expected)
+    print('       actual:  ', actual)
 
 
 def sum_first_n(numbers, n):
@@ -642,8 +669,14 @@ def sum_first_n(numbers, n):
       :type numbers:   list of tuple (of numbers)
       :type n: int
     """
+
+    total = 0
+    for k in range (n):
+        total = total + numbers[k]
+    return total
+
     # ------------------------------------------------------------------
-    # TODO: 9. Implement and test this function.
+    # DONE: 9. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # RESTRICTION:
